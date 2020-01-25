@@ -5,25 +5,21 @@ import strings from "src/locales";
 
 class App extends React.Component {
   render() {
-    const { logout } = this.props;
-
     return (
       <div className="App">
         <header>
           <p>ESTOY LOGUEADO!</p>
-          <Button
-            onClick={() => {
-              logout();
-            }}
-          >
-            {strings.logout}
-          </Button>
+          <Button onClick={this.logout}>{strings.logout}</Button>
         </header>
       </div>
     );
   }
+
+  logout = () => {
+    this.props.logout();
+    window.location.reload();
+  };
 }
 
 const mapToProps = ({ auth }) => auth;
-
 export default connect(mapToProps, mapToProps)(App);

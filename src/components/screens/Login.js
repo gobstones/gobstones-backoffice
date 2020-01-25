@@ -66,7 +66,7 @@ class Login extends React.Component {
     e.preventDefault();
 
     this.props.login().then(() => {
-      alert("LOGIN OK!");
+      window.location.reload();
     });
   };
 }
