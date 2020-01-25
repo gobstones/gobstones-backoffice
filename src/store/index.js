@@ -1,8 +1,12 @@
 import { init } from "@rematch/core";
 import createLoadingPlugin from "@rematch/loading";
 import createRematchPersist from "@rematch/persist";
+import { connectRouter } from "connected-react-router";
 import models from "./models";
 import transformers from "./models/transformers";
+
+const createHistory = require("history").createHashHistory;
+export const history = createHistory();
 
 const store = init({
   models,
@@ -13,7 +17,12 @@ const store = init({
       whitelist: ["auth"],
       transforms: transformers
     })
-  ]
+  ],
+  redux: {
+    reducers: {
+      router: connectRouter(history)((state = {}, action) => state)
+    }
+  }
 });
 
 export default store;
