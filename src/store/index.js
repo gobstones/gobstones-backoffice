@@ -20,7 +20,7 @@ const store = init({
   ],
   redux: {
     reducers: {
-      router: connectRouter(history)((state = {}, action) => state)
+      router: connectRouter(history)
     }
   }
 });
