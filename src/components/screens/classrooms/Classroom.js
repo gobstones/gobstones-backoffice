@@ -7,10 +7,16 @@ export default class Classroom extends React.Component {
     const { classroom } = this.props;
 
     return (
-      <div className={styles.container}>
-        {classroom.id} - {classroom.name} - {classroom.slug} -{" "}
-        {classroom.students.length} {strings.students}
-      </div>
+      <tr className={styles.container}>
+        <td>{classroom.id}</td>
+        <td>{classroom.name}</td>
+        <td>{classroom.slug}</td>
+        <td>
+          <a href="#/courseId">
+            {classroom.students.length} {strings.students}
+          </a>
+        </td>
+      </tr>
     );
   }
 }
