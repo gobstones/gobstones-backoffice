@@ -12,16 +12,20 @@ export default class Login extends React.Component {
 
           <Form>
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Label>{strings.emailAddress}</Form.Label>
+              <Form.Control type="email" placeholder={strings.enterEmail} />
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Label>{strings.password}</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder={strings.enterPassword}
+              />
             </Form.Group>
+
             <Button onClick={this.login} variant="primary" type="submit">
-              Submit
+              {strings.login}
             </Button>
           </Form>
         </header>
