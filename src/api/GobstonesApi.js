@@ -1,6 +1,7 @@
 import axios from "axios";
 import transformBody from "./interceptors/transformBody";
 import env from "src/config/env";
+import store from "src/store";
 
 export default class MedsByMeApi {
   constructor() {
@@ -16,5 +17,17 @@ export default class MedsByMeApi {
       username: username.toLowerCase(),
       password
     });
+  }
+
+  getClassrooms() {
+    return this.api.get("classrooms", {
+      headers: {
+        Authorization: this.token
+      }
+    });
+  }
+
+  get token() {
+    return store.getState().auth.token;
   }
 }

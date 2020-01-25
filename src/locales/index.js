@@ -1,4 +1,5 @@
 export default {
+  classrooms: "Classrooms",
   emailAddress: "Email address",
   enterEmail: "Enter email",
   enterPassword: "Enter password",
@@ -7,5 +8,6 @@ export default {
   loginFailed: "Login failed",
   logout: "Logout",
   password: "Password",
-  pleaseLogin: "Please login"
+  pleaseLogin: "Please login",
+  students: "students"
 };
