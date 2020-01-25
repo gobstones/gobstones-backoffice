@@ -1,5 +1,6 @@
 import React from "react";
 import strings from "src/locales";
+import env from "src/config/env";
 import styles from "./Classroom.module.css";
 
 export default class Classroom extends React.Component {
@@ -10,7 +11,15 @@ export default class Classroom extends React.Component {
       <tr className={styles.container}>
         <td>{classroom.id}</td>
         <td>{classroom.name}</td>
-        <td>{classroom.slug}</td>
+        <td>
+          <a
+            href={`${env.GOBSTONES_URL}?course=${classroom.course_slug}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {classroom.course_slug}
+          </a>
+        </td>
         <td>
           <a href="#/courseId">
             {classroom.students.length} {strings.students}
