@@ -1,11 +1,10 @@
 import React from "react";
-import "./Login.css";
 
 export default class OtraRuta extends React.Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <header>
           <p>Soy otra ruta</p>
         </header>
       </div>
