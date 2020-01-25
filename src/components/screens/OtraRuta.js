@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./Login.css";
 
 export default class OtraRuta extends React.Component {
   render() {

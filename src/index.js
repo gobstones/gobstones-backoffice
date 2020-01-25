@@ -7,8 +7,8 @@ import { ConnectedRouter } from "connected-react-router";
 import { PersistGate } from "redux-persist/es/integration/react";
 import store, { history } from "./store";
 
-import App from "./components/App";
-import OtraRuta from "./components/OtraRuta";
+import Login from "./components/screens/Login";
+import OtraRuta from "./components/screens/OtraRuta";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
@@ -17,7 +17,7 @@ ReactDOM.render(
       <ConnectedRouter history={history}>
         <Fragment>
           <Switch>
-            <Route exact path="/" render={() => <App />} />
+            <Route exact path="/" render={() => <Login />} />
             <Route path="/otraruta" render={() => <OtraRuta />} />
           </Switch>
         </Fragment>
