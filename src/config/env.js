@@ -1,3 +1,3 @@
 export default {
-  API_URL: "https://192.168.1.23"
+  API_URL: "http://localhost:3001"
 };

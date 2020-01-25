@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Form, Button } from "react-bootstrap";
+import { Alert, Form, Button } from "react-bootstrap";
 import strings from "src/locales";
 import styles from "./Login.module.css";
 
@@ -11,7 +11,8 @@ class Login extends React.Component {
       password,
       setUsername,
       setPassword,
-      isLoading
+      isLoading,
+      hasError
     } = this.props;
 
     return (
@@ -43,11 +44,17 @@ class Login extends React.Component {
             </Form.Group>
 
             {isLoading ? (
-              <div>Loading...</div>
+              <div>{strings.loading}</div>
             ) : (
-              <Button onClick={this.login} variant="primary" type="submit">
-                {strings.login}
-              </Button>
+              <div>
+                {hasError && (
+                  <Alert variant="danger">{strings.loginFailed}</Alert>
+                )}
+
+                <Button onClick={this.login} variant="primary" type="submit">
+                  {strings.login}
+                </Button>
+              </div>
             )}
           </Form>
         </header>
@@ -59,7 +66,7 @@ class Login extends React.Component {
     e.preventDefault();
 
     this.props.login().then(() => {
-      alert("Re piola");
+      alert("LOGIN OK!");
     });
   };
 }

@@ -4,7 +4,8 @@ const KEY = "login";
 
 const INITIAL_STATE = () => ({
   username: "",
-  password: ""
+  password: "",
+  hasError: false
 });
 
 export default {
@@ -12,14 +13,23 @@ export default {
   reducers: {
     setUsername: (state, username) => ({ ...state, username }),
     setPassword: (state, password) => ({ ...state, password }),
+    setErrorFlag: (state) => ({ ...state, hasError: true }),
+    clearErrorFlag: (state) => ({ ...state, hasError: false }),
     clear: INITIAL_STATE
   },
   effects: (dispatch) => ({
     async login(payload, rootState) {
-      const credentials = rootState[KEY];
-      await gobstonesApi.login(credentials);
-      // TODO: Receive and set token in `auth` model
-      dispatch[KEY].clear();
+      const { username, password } = rootState[KEY];
+
+      dispatch[KEY].clearErrorFlag();
+      try {
+        const response = await gobstonesApi.login(username, password);
+        dispatch.auth.setToken(response.token);
+        dispatch[KEY].clear();
+      } catch (e) {
+        dispatch[KEY].setErrorFlag();
+        throw e;
+      }
     }
   })
 };

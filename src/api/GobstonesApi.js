@@ -11,7 +11,7 @@ export default class MedsByMeApi {
     );
   }
 
-  login({ username, password }) {
+  login(username, password) {
     return this.api.post("login", {
       username: username.toLowerCase(),
       password

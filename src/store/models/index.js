@@ -1,3 +1,4 @@
+import auth from "./auth";
 import login from "./login";
 
-export default { login };
+export default { auth, login };
