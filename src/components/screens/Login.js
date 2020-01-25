@@ -18,7 +18,9 @@ class Login extends React.Component {
     return (
       <div className={styles.app}>
         <header className={styles.appHeader}>
-          <h1 className={styles.title}>{strings.pleaseLogin}</h1>
+          <h1 className={styles.title}>
+            {strings.gobstonesBackoffice} - {strings.pleaseLogin}
+          </h1>
 
           <Form>
             <Form.Group controlId="formBasicEmail">

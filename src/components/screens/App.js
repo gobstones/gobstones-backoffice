@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
+import NavBar from "src/components/NavBar";
 import ClassroomList from "./classrooms/ClassroomList";
 import strings from "src/locales";
 import styles from "./App.module.css";
@@ -10,18 +11,22 @@ class App extends React.Component {
     const { classrooms, isLoading } = this.props;
 
     return (
-      <div>
-        <p>{strings.classrooms}</p>
+      <div className={styles.container}>
+        <NavBar />
 
-        {isLoading ? (
-          strings.loading
-        ) : (
-          <ClassroomList classrooms={classrooms} />
-        )}
+        <div className={styles.content}>
+          <h1>{strings.classrooms}</h1>
 
-        <Button className={styles.logout} onClick={this.logout}>
-          {strings.logout}
-        </Button>
+          {isLoading ? (
+            strings.loading
+          ) : (
+            <ClassroomList classrooms={classrooms} />
+          )}
+
+          <Button className={styles.logout} onClick={this.logout}>
+            {strings.logout}
+          </Button>
+        </div>
       </div>
     );
   }
