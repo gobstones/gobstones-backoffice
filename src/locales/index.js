@@ -5,6 +5,7 @@ export default {
   loading: "Loading...",
   login: "Login",
   loginFailed: "Login failed",
+  logout: "Logout",
   password: "Password",
   pleaseLogin: "Please login"
 };

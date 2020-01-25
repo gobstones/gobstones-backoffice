@@ -8,7 +8,7 @@ import { PersistGate } from "redux-persist/es/integration/react";
 import store, { history } from "./store";
 
 import Login from "./components/screens/Login";
-import OtraRuta from "./components/screens/OtraRuta";
+import App from "./components/screens/App";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
@@ -17,8 +17,14 @@ ReactDOM.render(
       <ConnectedRouter history={history}>
         <Fragment>
           <Switch>
-            <Route exact path="/" render={() => <Login />} />
-            <Route path="/otraruta" render={() => <OtraRuta />} />
+            <Route
+              exact
+              path="/"
+              render={() => {
+                const isLoggedIn = store.getState().auth.token;
+                return isLoggedIn ? <App /> : <Login />;
+              }}
+            />
           </Switch>
         </Fragment>
       </ConnectedRouter>

@@ -76,4 +76,5 @@ const mapStateToProps = ({ login, loading }) => ({
   isLoading: loading.effects.login.login
 });
 const mapDispatchToProps = ({ login }) => login;
+
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
