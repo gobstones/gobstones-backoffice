@@ -45,6 +45,9 @@ const mapStateToProps = ({ classrooms, loading }) => ({
   classrooms,
   isLoading: loading.effects.classrooms.getClassrooms
 });
-const mapDispatchToProps = ({ classrooms }) => classrooms;
+const mapDispatchToProps = ({ classrooms, auth }) => ({
+  ...classrooms,
+  ...auth
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

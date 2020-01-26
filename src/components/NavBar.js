@@ -11,7 +11,7 @@ export default class NavBar extends React.Component {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="#/">{strings.classrooms}</Nav.Link>
-            <Nav.Link href="#link">Other link</Nav.Link>
+            {/*<Nav.Link href="#link">Other link</Nav.Link>*/}
           </Nav>
           <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
