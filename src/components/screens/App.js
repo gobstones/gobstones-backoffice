@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Button } from "react-bootstrap";
 import NavBar from "src/components/NavBar";
 import ClassroomList from "./classrooms/ClassroomList";
 import strings from "src/locales";
@@ -22,10 +21,6 @@ class App extends React.Component {
           ) : (
             <ClassroomList classrooms={classrooms} />
           )}
-
-          <Button className={styles.logout} onClick={this.logout}>
-            {strings.logout}
-          </Button>
         </div>
       </div>
     );
@@ -34,20 +29,12 @@ class App extends React.Component {
   componentDidMount() {
     this.props.getClassrooms();
   }
-
-  logout = () => {
-    this.props.logout();
-    window.location.reload();
-  };
 }
 
 const mapStateToProps = ({ classrooms, loading }) => ({
   classrooms,
   isLoading: loading.effects.classrooms.getClassrooms
 });
-const mapDispatchToProps = ({ classrooms, auth }) => ({
-  ...classrooms,
-  ...auth
-});
+const mapDispatchToProps = ({ classrooms }) => classrooms;
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

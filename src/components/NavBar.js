@@ -1,8 +1,9 @@
 import React from "react";
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { connect } from "react-redux";
+import { Navbar, Nav, Button } from "react-bootstrap";
 import strings from "src/locales";
 
-export default class NavBar extends React.Component {
+class NavBar extends React.Component {
   render() {
     return (
       <Navbar bg="light" expand="lg">
@@ -13,12 +14,18 @@ export default class NavBar extends React.Component {
             <Nav.Link href="#/">{strings.classrooms}</Nav.Link>
             {/*<Nav.Link href="#link">Other link</Nav.Link>*/}
           </Nav>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-          </Form>
+          <Button onClick={this.logout}>{strings.logout}</Button>
         </Navbar.Collapse>
       </Navbar>
     );
   }
+
+  logout = () => {
+    this.props.logout();
+    window.location.reload();
+  };
 }
+
+const mapDispatchToProps = ({ auth }) => auth;
+
+export default connect(null, mapDispatchToProps)(NavBar);
