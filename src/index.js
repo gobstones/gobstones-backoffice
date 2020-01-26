@@ -11,6 +11,7 @@ import Login from "./components/screens/Login";
 import App from "./components/screens/App";
 import ClassroomList from "./components/screens/classrooms/ClassroomList";
 import StudentList from "./components/screens/students/StudentList";
+import SubmissionList from "./components/screens/submissions/SubmissionList";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const isLoggedIn = () => store.getState().auth.token !== null;
@@ -34,7 +35,18 @@ ReactDOM.render(
             />
 
             <Route
-              path="/courses/:id"
+              path="/classrooms/:classroomId/students/:studentId"
+              render={() => {
+                return isLoggedIn() ? (
+                  <App screen={SubmissionList} />
+                ) : (
+                  <Login />
+                );
+              }}
+            />
+
+            <Route
+              path="/classrooms/:id"
               render={() => {
                 return isLoggedIn() ? <App screen={StudentList} /> : <Login />;
               }}

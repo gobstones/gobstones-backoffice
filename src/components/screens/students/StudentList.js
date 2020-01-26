@@ -16,7 +16,7 @@ class StudentList extends React.Component {
     return (
       <div className={styles.container}>
         <h1>
-          {strings.studentsOf} #{this.courseId}
+          {strings.studentsOf} #{this.classroomId}
         </h1>
 
         <div className={styles.content}>
@@ -33,7 +33,7 @@ class StudentList extends React.Component {
               </thead>
               <tbody>
                 {students.map((it, i) => (
-                  <Student student={it} key={i} />
+                  <Student student={it} key={i} onClick={() => this.goTo(it)} />
                 ))}
               </tbody>
             </Table>
@@ -44,14 +44,18 @@ class StudentList extends React.Component {
   }
 
   componentDidMount() {
-    withLoading(gobstonesApi.getStudentsOf(this.courseId), this).then(
+    withLoading(gobstonesApi.getStudentsOf(this.classroomId), this).then(
       (students) => {
         this.setState({ students });
       }
     );
   }
 
-  get courseId() {
+  goTo = (student) => {
+    window.location.href = `#/classrooms/${this.classroomId}/students/${student.id}`;
+  };
+
+  get classroomId() {
     return this.props.match.params.id;
   }
 }

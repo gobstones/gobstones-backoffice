@@ -1,6 +1,6 @@
 export default {
   classrooms: "Classrooms",
-  course: "Course",
+  classroom: "Classroom",
   emailAddress: "Email address",
   enterEmail: "Enter email",
   enterPassword: "Enter password",
@@ -17,5 +17,6 @@ export default {
   pleaseLogin: "Please login!",
   studentsTitle: "Students",
   students: "students",
-  studentsOf: "Students of"
+  studentsOf: "Students of",
+  submissionsOf: "Submissions of"
 };

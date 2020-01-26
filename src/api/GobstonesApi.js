@@ -27,12 +27,18 @@ export default class MedsByMeApi {
     });
   }
 
-  getStudentsOf(courseId) {
-    return this.api.get(`courses/${courseId}/students`, {
+  getStudentsOf(classroomId) {
+    return this.api.get(`classrooms/${classroomId}/students`, {
       headers: {
         Authorization: this.token
       }
     });
+  }
+
+  getSubmissionsOf(classroomId, studentId) {
+    return this.api.get(
+      `/classrooms/${classroomId}/students/${studentId}/submissions`
+    );
   }
 
   get token() {

@@ -13,16 +13,16 @@ export default class Classroom extends React.Component {
         <td>{classroom.name}</td>
         <td>
           <a
-            href={`${env.GOBSTONES_URL}?course=${classroom.course_slug}`}
+            href={`${env.GOBSTONES_URL}?classroom=${classroom.classroom_slug}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {classroom.course_slug}
+            {classroom.classroom_slug}
           </a>
         </td>
         <td>
-          <a href={`#/courses/${classroom.id}`}>
-            {classroom.students.length} {strings.students}
+          <a href={`#/classrooms/${classroom.id}`}>
+            {classroom.students_count.length} {strings.students}
           </a>
         </td>
       </tr>
