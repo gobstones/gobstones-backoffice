@@ -4,8 +4,10 @@ export default {
   emailAddress: "Email address",
   enterEmail: "Enter email",
   enterPassword: "Enter password",
+  firstName: "First name",
   gobstonesBackoffice: "Gobstones Backoffice",
   id: "#",
+  lastName: "Last name",
   loading: "Loading...",
   login: "Login",
   loginFailed: "Login failed",
@@ -14,5 +16,6 @@ export default {
   password: "Password",
   pleaseLogin: "Please login!",
   studentsTitle: "Students",
-  students: "students"
+  students: "students",
+  studentsOf: "Students of"
 };

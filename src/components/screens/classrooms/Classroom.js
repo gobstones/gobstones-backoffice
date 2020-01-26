@@ -21,7 +21,7 @@ export default class Classroom extends React.Component {
           </a>
         </td>
         <td>
-          <a href="#/courseId">
+          <a href={`#/courses/${classroom.id}`}>
             {classroom.students.length} {strings.students}
           </a>
         </td>

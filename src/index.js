@@ -10,7 +10,10 @@ import store, { history } from "./store";
 import Login from "./components/screens/Login";
 import App from "./components/screens/App";
 import ClassroomList from "./components/screens/classrooms/ClassroomList";
+import StudentList from "./components/screens/students/StudentList";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+const isLoggedIn = () => store.getState().auth.token !== null;
 
 ReactDOM.render(
   <Provider store={store}>
@@ -22,8 +25,18 @@ ReactDOM.render(
               exact
               path="/"
               render={() => {
-                const isLoggedIn = store.getState().auth.token;
-                return isLoggedIn ? <App screen={ClassroomList} /> : <Login />;
+                return isLoggedIn() ? (
+                  <App screen={ClassroomList} />
+                ) : (
+                  <Login />
+                );
+              }}
+            />
+
+            <Route
+              path="/courses/:id"
+              render={() => {
+                return isLoggedIn() ? <App screen={StudentList} /> : <Login />;
               }}
             />
           </Switch>

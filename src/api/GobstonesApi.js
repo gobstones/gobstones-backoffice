@@ -27,6 +27,14 @@ export default class MedsByMeApi {
     });
   }
 
+  getStudentsOf(courseId) {
+    return this.api.get(`courses/${courseId}/students`, {
+      headers: {
+        Authorization: this.token
+      }
+    });
+  }
+
   get token() {
     return store.getState().auth.token;
   }
