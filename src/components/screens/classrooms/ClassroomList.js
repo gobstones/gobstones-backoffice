@@ -22,7 +22,7 @@ class ClassroomList extends React.Component {
                 <tr>
                   <th>{strings.id}</th>
                   <th>{strings.name}</th>
-                  <th>{strings.classroom}</th>
+                  <th>{strings.course}</th>
                   <th>{strings.studentsTitle}</th>
                 </tr>
               </thead>

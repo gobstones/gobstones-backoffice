@@ -8,24 +8,26 @@ export default class Classroom extends React.Component {
     const { classroom } = this.props;
 
     return (
-      <tr className={styles.container}>
+      <tr className={styles.container} onClick={() => this.goTo(classroom)}>
         <td>{classroom.id}</td>
         <td>{classroom.name}</td>
         <td>
           <a
-            href={`${env.GOBSTONES_URL}?classroom=${classroom.classroom_slug}`}
+            href={`${env.GOBSTONES_URL}?classroom=${classroom.course_slug}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {classroom.classroom_slug}
+            {classroom.course_slug}
           </a>
         </td>
         <td>
-          <a href={`#/classrooms/${classroom.id}`}>
-            {classroom.students_count.length} {strings.students}
-          </a>
+          {classroom.students_count} {strings.students}
         </td>
       </tr>
     );
   }
+
+  goTo = (classroom) => {
+    window.location.href = `#/classrooms/${classroom.id}`;
+  };
 }

@@ -1,6 +1,7 @@
 export default {
   classrooms: "Classrooms",
   classroom: "Classroom",
+  course: "Course",
   emailAddress: "Email address",
   enterEmail: "Enter email",
   enterPassword: "Enter password",
