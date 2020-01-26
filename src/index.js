@@ -9,6 +9,7 @@ import store, { history } from "./store";
 
 import Login from "./components/screens/Login";
 import App from "./components/screens/App";
+import ClassroomList from "./components/screens/classrooms/ClassroomList";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
@@ -22,7 +23,7 @@ ReactDOM.render(
               path="/"
               render={() => {
                 const isLoggedIn = store.getState().auth.token;
-                return isLoggedIn ? <App /> : <Login />;
+                return isLoggedIn ? <App screen={ClassroomList} /> : <Login />;
               }}
             />
           </Switch>
