@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDiffViewer from "react-diff-viewer";
 import { withRouter } from "react-router";
 import { gobstonesApi } from "src/api";
 import { withLoading } from "src/utils";
@@ -21,7 +22,7 @@ class SubmissionList extends React.Component {
           {isLoading ? (
             strings.loading
           ) : (
-            <code>{JSON.stringify(submissions, null, 2)}</code>
+            <ReactDiffViewer oldValue="old" newValue="new" splitView />
           )}
         </div>
       </div>
