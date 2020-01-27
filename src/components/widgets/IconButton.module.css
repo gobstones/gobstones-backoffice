@@ -1,0 +1,20 @@
+.container {
+  padding: 8px;
+  border: 1px solid;
+  border-color: "#cecece";
+  border-radius: 6px;
+}
+
+.enabled {
+  background-color: white;
+  cursor: pointer;
+}
+
+.enabled:hover {
+  background-color: #eeeeee;
+  cursor: pointer;
+}
+
+.disabled {
+  background-color: #cecece;
+}

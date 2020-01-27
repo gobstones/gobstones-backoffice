@@ -1,7 +1,7 @@
 import React from "react";
-import ReactDiffViewer from "react-diff-viewer";
 import { withRouter } from "react-router";
 import { CollapsableBox } from "src/components/widgets";
+import CodeInspector from "./CodeInspector";
 import { gobstonesApi } from "src/api";
 import { withLoading } from "src/utils";
 import strings from "src/locales";
@@ -15,7 +15,6 @@ class SubmissionList extends React.Component {
     const { submissions, selected, isLoading } = this.state;
 
     const submissionsByExercise = _.groupBy(submissions, "exercise_slug");
-    // <ReactDiffViewer oldValue="old" newValue="new" splitView />
 
     return (
       <div className={styles.container}>
@@ -33,7 +32,7 @@ class SubmissionList extends React.Component {
                   onToggle={() => this.setState({ selected: i })}
                   key={i}
                 >
-                  <div>test</div>
+                  <CodeInspector submissions={submissionsByExercise[slug]} />
                 </CollapsableBox>
               ))}
         </div>
