@@ -3,12 +3,16 @@ import { connect } from "react-redux";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import Breadcrumbs from "./Breadcrumbs";
 import strings from "src/locales";
+import logoImg from "src/assets/logo.png";
 
 class NavBar extends React.Component {
   render() {
     return (
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#/">{strings.gobstonesBackoffice}</Navbar.Brand>
+        <Navbar.Brand href="#/">
+          <img src={logoImg} alt="logo" style={{ marginRight: 4 }} />{" "}
+          {strings.gobstonesBackoffice}
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
