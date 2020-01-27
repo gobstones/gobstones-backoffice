@@ -19,7 +19,7 @@ class SubmissionList extends React.Component {
     return (
       <div className={styles.container}>
         <h1>
-          {strings.submissionsOf} #{this.classroomId}
+          {strings.submissionsOf} #{this.studentId}
         </h1>
 
         <div className={styles.content}>
