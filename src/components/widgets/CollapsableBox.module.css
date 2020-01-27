@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 10px;
+  border: 1px solid;
+  border-color: "#cecece";
+  border-radius: 6px;
+}
+
+.selectable {
+  cursor: pointer;
+}
+
+.selectable:hover {
+  background-color: #efefef;
+}
+
+.title {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.titleText {
+  margin-left: 8px;
+}

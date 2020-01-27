@@ -1,16 +1,21 @@
 import React from "react";
 import ReactDiffViewer from "react-diff-viewer";
 import { withRouter } from "react-router";
+import { CollapsableBox } from "src/components/widgets";
 import { gobstonesApi } from "src/api";
 import { withLoading } from "src/utils";
 import strings from "src/locales";
 import styles from "./SubmissionList.module.css";
+import _ from "lodash";
 
 class SubmissionList extends React.Component {
-  state = { submissions: [], isLoading: false };
+  state = { submissions: [], selected: 0, isLoading: false };
 
   render() {
-    const { submissions, isLoading } = this.state;
+    const { submissions, selected, isLoading } = this.state;
+
+    const submissionsByExercise = _.groupBy(submissions, "exercise_slug");
+    // <ReactDiffViewer oldValue="old" newValue="new" splitView />
 
     return (
       <div className={styles.container}>
@@ -19,11 +24,18 @@ class SubmissionList extends React.Component {
         </h1>
 
         <div className={styles.content}>
-          {isLoading ? (
-            strings.loading
-          ) : (
-            <ReactDiffViewer oldValue="old" newValue="new" splitView />
-          )}
+          {isLoading
+            ? strings.loading
+            : _.keys(submissionsByExercise).map((slug, i) => (
+                <CollapsableBox
+                  title={slug}
+                  isOpen={selected === i}
+                  onToggle={() => this.setState({ selected: i })}
+                  key={i}
+                >
+                  <div>test</div>
+                </CollapsableBox>
+              ))}
         </div>
       </div>
     );
