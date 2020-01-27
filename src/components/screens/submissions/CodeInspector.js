@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDiffViewer from "react-diff-viewer";
 import { IconButton } from "src/components/widgets";
-import strings from "src/locales";
 import styles from "./CodeInspector.module.css";
 
 class CodeInspector extends React.Component {
@@ -22,19 +21,21 @@ class CodeInspector extends React.Component {
 
     return (
       <div className={styles.container}>
-        <div className={styles.buttons}>
-          <IconButton
-            icon="chevron-left"
-            disabled={selected === 0}
-            onClick={this.back}
-          />
-          <IconButton
-            icon="chevron-right"
-            disabled={selected === submissions.length - 1}
-            onClick={this.forward}
-            style={{ marginLeft: 10 }}
-          />
-        </div>
+        {submissions.length > 1 && (
+          <div className={styles.buttons}>
+            <IconButton
+              icon="chevron-left"
+              disabled={selected === 0}
+              onClick={this.back}
+            />
+            <IconButton
+              icon="chevron-right"
+              disabled={selected === submissions.length - 1}
+              onClick={this.forward}
+              style={{ marginLeft: 10 }}
+            />
+          </div>
+        )}
 
         <ReactDiffViewer oldValue={oldCode} newValue={newCode} splitView />
       </div>
