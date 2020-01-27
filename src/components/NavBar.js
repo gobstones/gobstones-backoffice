@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Navbar, Nav, Button } from "react-bootstrap";
+import Breadcrumbs from "./Breadcrumbs";
 import strings from "src/locales";
 
 class NavBar extends React.Component {
@@ -11,8 +12,7 @@ class NavBar extends React.Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#/">{strings.classrooms}</Nav.Link>
-            {/*<Nav.Link href="#link">Other link</Nav.Link>*/}
+            <Breadcrumbs />
           </Nav>
           <Button onClick={this.logout}>{strings.logout}</Button>
         </Navbar.Collapse>
